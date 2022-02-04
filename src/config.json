@@ -1,0 +1,32 @@
+{
+  "sentiance_api_base_url": "https://api.sentiance.com",
+  "app": {
+    "id": "",
+    "secret": "",
+    "user_link_api_key": ""
+  },
+  "auth": {
+    "allowed_credentials": [
+      {
+        "username": "dev-1",
+        "password": "test"
+      },
+      {
+        "username": "dev-2",
+        "password": "test"
+      },
+      {
+        "username": "dev-3",
+        "password": "test"
+      },
+      {
+        "username": "dev-4",
+        "password": "test"
+      },
+      {
+        "username": "dev-5",
+        "password": "test"
+      }
+    ]
+  }
+}
