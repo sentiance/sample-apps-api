@@ -1,5 +1,5 @@
 # Sentiance Sample Application Backend
-This service is written as an example to demonstrate the features (workflows) your backend would need to handle in order to successfully integrate the Sentiance SDK
+This service is written as an example to demonstrate the features (workflows) your backend would need to successfully integrate the Sentiance SDK
 
 ## Workflows
 
@@ -21,7 +21,7 @@ This service is written as an example to demonstrate the features (workflows) yo
 
 ### User Linking
 
-This allows user's to switch devices without loosing data. 
+This allows user's to switch devices without losing data. 
 
 You will find the `users/:user_id/link` route in `src/routes.js` which demonstrates how to query the Sentiance Platform to perform a "user linking request".
 
@@ -29,4 +29,4 @@ More information: https://docs.sentiance.com/important-topics/user-linking-2.0
 
 ### SDK Credentials (recommended)
 
-As you have gathered the SDK (and thus your application) requires credentials in order for authenticate itself with the Sentiance platform. We highly recommended you store these credentials in your backend, instead of the frontend application code base.
+As you have noticed, the SDK (and thus your application) requires credentials to authenticate itself with the Sentiance platform. We highly recommended you store these credentials in your backend, instead of the frontend application code base.
