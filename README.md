@@ -1,25 +1,32 @@
-## Sentiance service sample app node
-This service written as an example to show the expected APIs and their implementations. The route paths and authentication mechanisms can differ when you add these APIs as a part of your production service.
+# Sentiance Sample Application Backend
+This service is written as an example to demonstrate the features (workflows) your backend would need to successfully integrate the Sentiance SDK
 
-### Run the sample app service
+## Workflows
+
+1. User Linking
+1. SDK Credentials (recommended)
+
+## Run the sample app service
 1. Use node version 14.x
-2. Run npm install
+2. Run `npm install`
 3. Add values to the following config properties in config.json
     - app.id
     - app.secret
     - app.user_linking_api_key
-4. Run npm start
+4. Run `npm start`
 
+*Contact support@sentiance.com to receive your APP ID, Secret and User Linking API Key*
 
-### What the sample app has/ what we expect your service to have
+## Workflows Explained
 
-##### Expose an API to send the app id and secret
-App id and secret should not be stored directly in the device and it should be retrieved from the backend.
+### User Linking
 
-##### Expose an API to link the application's user id with Sentiance user id.
-This route should call the Sentiance user linking api /v2/users/:install_id/link. Refer https://docs.sentiance.com/important-topics/user-linking-2.0#server-to-server-integration-api. The Sentiance user linking API expects a json request body with property external_id. external_id is the id of the user who has logged in to the service. This id is expected to be unique for a user in an application so that even after multiple app installations to various devices or multiple logins to the same device, the Sentiance API will be able to identify to the user.
+This allows user's to switch devices without losing data. 
 
-### Authentication
+You will find the `users/:user_id/link` route in `src/routes.js` which demonstrates how to query the Sentiance Platform to perform a "user linking request".
 
- Authentication mechanism given here is just for an example. It can be replaced by any authentication mechanism as per your application.
- For this sample app, we have used a Basic authentication with accepted usernames and passwords configured as a part of config file(/src/config.json). If the used username and password combinations match the ones in the config file the authentication succeeds
+More information: https://docs.sentiance.com/important-topics/user-linking-2.0
+
+### SDK Credentials (recommended)
+
+As you have noticed, the SDK (and thus your application) requires credentials to authenticate itself with the Sentiance platform. We highly recommended you store these credentials in your backend, instead of the frontend application code base.
