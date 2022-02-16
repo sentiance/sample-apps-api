@@ -47,6 +47,11 @@ const server = http.createServer(app)
 
 function startServer() {
   if (!Config.app.id || !Config.app.secret) {
+    console.log(`
+****************************************
+ERROR: Please add the app.id and app.secret in the config.json file
+****************************************
+    `)
     Logger.error('app.id and app.secret are mandatory in config.json')
     return
   }
