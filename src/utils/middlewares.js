@@ -38,7 +38,7 @@ const checkAuthentication = (req, res, next) => {
     password: decodedParts[1],
   }
 
-  set(req, 'user.name', suppliedCredentials.username)
+  set(req, 'user.id', suppliedCredentials.username)
 
   authenticate(suppliedCredentials)
 

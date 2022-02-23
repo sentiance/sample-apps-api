@@ -64,7 +64,7 @@ router.post(
   asyncWrapper(async function (req, res) {
     try {
       const reqBody = {
-        external_id: req.user.name,
+        external_id: req.user.id,
       }
       const response = await axios.post(`${Config.sentiance_api_base_url}/v2/users/${req.params.id}/link`, reqBody, {
         headers: {
