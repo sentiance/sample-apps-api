@@ -1,6 +1,21 @@
 # Sentiance Sample Application Backend
 This service is written as an example to demonstrate the features (workflows) your backend would need to successfully integrate the Sentiance SDK
 
+## Routes
+This services exposes the following routes
+
+```
+GET http://localhost:8000/config
+
+    Description: Returns the SDK credentials
+    Response: {id: <app id>, secret: <app secret>}
+    
+POST http://localhost:8000/user/:install_id/link
+
+    Description: Links the application user and the sentiance user
+    Response {id: <id>}
+```
+
 ## Workflows
 
 1. User Linking
