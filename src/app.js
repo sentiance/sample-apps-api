@@ -52,7 +52,7 @@ function startServer() {
 ERROR: Please add the app.id and app.secret in the config.json file
 ****************************************
     `)
-    Logger.error('app.id and app.secret are mandatory in config.json')
+    Logger.error('app.id and app.secret are mandatory in src/config.json')
     return
   }
   // start server
