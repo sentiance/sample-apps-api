@@ -21,7 +21,7 @@ app.use(checkContentTypeHeader)
 app.use('/', routes)
 
 // error handler
-app.use(function (error, req, res) {
+app.use(function (error, req, res, next) {
   Logger.error({ message: error.message, stack: error.stack })
   const boomError = new Boom.Boom(error)
 
