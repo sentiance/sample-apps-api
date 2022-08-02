@@ -1,47 +1,38 @@
 # Sentiance Sample Application Backend
-This service is written as an example to demonstrate the features (workflows) your backend would need to successfully integrate the Sentiance SDK
+This service is written as an example to demonstrate the feature your backend would need to successfully integrate the Sentiance SDK.
 
-## Routes
-This services exposes the following routes
+## Route
+This services exposes the following route:
 
 ```
-GET http://localhost:8000/config
+GET http://localhost:8000/auth/code
 
-    Description: Returns the SDK credentials
-    Response: {id: <app id>, secret: <app secret>}
-    
-POST http://localhost:8000/user/:install_id/link
-
-    Description: Links the application user and the sentiance user
-    Response {id: <id>}
+    Description: Returns the auth code used for user creation via the SDK
+    Response: { app_id: <app-id>, auth_code: <auth-code>, platform_url: <url> }
 ```
-
-## Workflows
-
-1. User Linking
-1. SDK Credentials (recommended)
 
 ## Run the sample app service
 1. Use node version 14.x
 2. Run `npm install`
 3. Add values to the following config properties in config.json
     - app.id
-    - app.secret
     - app.user_linking_api_key
 4. Run `npm start`
 
-*Contact support@sentiance.com to receive your APP ID, Secret and User Linking API Key*
+*Contact support@sentiance.com to receive your APP ID and User Linking API Key*
 
-## Workflows Explained
+## Auth Code
 
-### User Linking
+This allows user creation via the Sentiance SDK.
 
-This allows user's to switch devices without losing data. 
+You will find the `auth/code` route in `src/routes.js` which demonstrates how to query the Sentiance Platform to request an auth code.
 
-You will find the `users/:user_id/link` route in `src/routes.js` which demonstrates how to query the Sentiance Platform to perform a "user linking request".
+```bash
+curl -X GET \
+    -H "Content-Type:application/json" \
+    -H "Accept: application/json" \
+    -d '{"external_id":"123.456.7890"}' \
+    "http://localhost:8000/auth/code"
+```
 
-More information: https://docs.sentiance.com/important-topics/user-linking-2.0
-
-### SDK Credentials (recommended)
-
-As you have noticed, the SDK (and thus your application) requires credentials to authenticate itself with the Sentiance platform. We highly recommended you store these credentials in your backend, instead of the frontend application code base.
+More information: https://docs.sentiance.com/sdk/appendix/user-creation

@@ -2,7 +2,6 @@
   "sentiance_api_base_url": "https://api.sentiance.com",
   "app": {
     "id": "",
-    "secret": "",
     "user_link_api_key": ""
   },
   "auth": {
