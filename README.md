@@ -25,7 +25,15 @@ GET http://localhost:8000/auth/code
 
 This allows user creation via the Sentiance SDK.
 
-You will find the `auth/code` route in `src/routes.js` which demonstrates how to query the Sentiance Platform to request an auth code.
+You will find the `auth/code` route in `src/routes.js` which demonstrates how to request an auth code from the Sentiance Platform using the `generate_auth_code` mutation of the GraphQL API (`POST <sentiance_api_base_url>/v4/gql`). The request must be authenticated with your User Linking API Key (an API key with the `user.link` scope).
+
+```graphql
+mutation generateAuthCode($externalId: String!) {
+  generate_auth_code(external_id: $externalId) {
+    authentication_code
+  }
+}
+```
 
 ```bash
 curl -X GET \
